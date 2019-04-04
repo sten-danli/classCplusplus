@@ -6,15 +6,14 @@ using namespace std;
 class CGoods
 {
 private:
-	char* Name[21];
+	string	Name;
 	int		Amount;
 	float	Price;
 	float	Total_value;
-
 public:
-	void  RegisterGoods(char name[], int amount, float price)
+	void  RegisterGoods( string name, int amount, float price)
 	{
-		strcpy_s(*Name,22, name);
+		Name=name;
 		Amount = amount;
 		Price = price;
 	}
@@ -22,12 +21,10 @@ public:
 	{
 		Total_value = Price * Amount;
 	}
-	void  GetName(char name[])
+	const std::string GetName()
 	{
-		strcpy_s(name,22, *Name);
-
+		return Name;
 	}
-
 	int GetMount(void)
 	{
 		return Amount;
@@ -37,8 +34,6 @@ public:
 	{
 		return Price;
 	}
-
-
 	float GetTotal(void)
 	{
 		return Total_value;
@@ -50,7 +45,9 @@ int  main() {
 	CGoods cg1;
 	cg1.RegisterGoods("c++", 23, 32);
 	cout << cg1.GetPrice() << endl;
-	cout << cg1.GetMount();
+	cout << cg1.GetMount() << endl;
+	cout << cg1.GetName() << endl;
+	cout << cg1.GetTotal() << endl;
 
 
 
